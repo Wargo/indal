@@ -5,15 +5,6 @@ ini_set('display_errors', 1);
 include('youtube.php');
 include('functions.php');
 
-if(!empty($_GET['page'])) {
-	$page = (int)$_GET['page'];
-	if($page < 1) {
-		$page = 1;
-	}
-} else {
-	$page = 1;
-}
-
 $youtube = new ChannelFeed('IndalLighting', $page);
 $vids = $youtube->showFullFeed();
 if(!count($vids)) {
@@ -39,7 +30,7 @@ if(!count($vids)) {
 		<h2>Vídeos</h2>
 	</div>
 
-	<div class="content">
+	<div class="clearfix">
 		<ul class="list">
 		<?php
 		if(!is_dir('cache')) {

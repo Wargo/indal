@@ -1,4 +1,13 @@
 <?php
+if(!empty($_GET['page'])) {
+	$page = (int)$_GET['page'];
+	if($page < 1) {
+		$page = 1;
+	}
+} else {
+	$page = 1;
+}
+
 function debug($array) {
 	echo '<pre>';
 	print_r($array);
