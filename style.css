@@ -1,0 +1,84 @@
+body {
+	font-family: arial;
+	font-size: 13px;
+	color: #666;
+	width: 500px;
+}
+
+a {
+	color: #F58820;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+h1 {
+	color: #F58820;
+}
+
+h2 {
+	color: #455560;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%; 
+}
+
+ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+ul.list li {
+	margin: 0 0 15px 0;
+	padding: 0 0 5px 0;
+	border-bottom: dotted 1px #CCC;
+}
+
+img.img {
+	border: 1px solid #CCC;
+	margin-right: 15px;
+	padding: 3px;
+}
+
+ul.menu li {
+	float: right;
+	display: inline;
+	border-left: solid 1px #CCC;
+	margin: 0px 10px;
+	padding: 0px 10px;
+}
+
+.paginator {
+	margin: 10px 0px;
+}
+.paginator a {
+	border: solid 1px #666;
+	color: #666;
+	background: #CCC;
+	padding: 2px 7px;
+	display: block;
+	font-weight: normal;
+}
+.prev {
+	float: left;
+}
+.next {
+	float: right;
+}
