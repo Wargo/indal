@@ -113,7 +113,7 @@ $key = 'ABQIAAAAGEV6Nd-qLB9zCIGC1aOYhhSQ2svP4hN5eHaSELwOJI6S4R9UdBQ7ESeIKDDHxmcv
 </head>
 
 <body onload="initialize()" onunload="GUnload()">
-	<h1>Contacto</h1>
+	<h1><a href="map.php">Contacto</a></h1>
 	<?php include('form.php'); ?>
 	<div id="map_canvas" style="width: 500px; height: 400px; margin-top: 10px;"></div>
 </body>
