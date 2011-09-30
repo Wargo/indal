@@ -22,6 +22,6 @@ if(!empty($_REQUEST['zone'])) {
 		<option value="5">Alemania</option>
 		<option value="6">Holanda</option>
 	</select>
-	<input type="text" />
+	<!-- <input type="text" />-->
 	<input type="submit" value="Buscar" />
 </form>
