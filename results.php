@@ -12,6 +12,11 @@ if(empty($_REQUEST['zone'])) {
 
 $offices = array(
 	array(
+		'lat' => '41.615346071613295',
+		'lng' => '-4.734764099121094',
+		'name' => 'Indal S.L. <br />Ctra. Arcas Reales S/N, 47008 Valladolid',
+	),
+	array(
 		'lat' => '39.673197',
 		'lng' => '-0.681023',
 		'name' => 'Oficina 1',
