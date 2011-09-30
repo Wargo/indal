@@ -4,6 +4,15 @@ ini_set('display_errors', 1);
 
 include('functions.php');
 
+/*
+mysql_connect('localhost', 'root', 'root');
+mysql_select_db('indal');
+
+$paises = mysql_query('select nombre from paises order by rand() limit 1');
+$pais = mysql_fetch_object($paises);
+debug($pais);
+*/
+
 if(empty($_REQUEST['zone'])) {
 	$zone = 'europe';
 } else {
