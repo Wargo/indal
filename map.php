@@ -29,11 +29,11 @@ foreach($zones as $key => $value) {
 	<h1>Contacto</h1>
 	<?php include('form.php'); ?>
 	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="500" height="300">
-	<param name="movie" value="map.swf" />
+	<param name="movie" value="map.swf?<?php echo implode('&', $aux); ?>" />
 	<param name="quality" value="high" />
 	<?php
 	foreach($zones as $key => $value) {
-		echo '<param name="' . $key . '" value="results.php?zone=' . $value . '" />';
+		//echo '<param name="' . $key . '" value="results.php?zone=' . $value . '" />';
 	}
 	?>
 	<embed src="map.swf?<?php echo implode('&', $aux); ?>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="500" height="300"></embed>
