@@ -32,6 +32,8 @@ $offices = array(
 		'name' => 'Oficina 4',
 	),
 );
+$key_local = 'ABQIAAAAGEV6Nd-qLB9zCIGC1aOYhhSQ2svP4hN5eHaSELwOJI6S4R9UdBQ7ESeIKDDHxmcv4t0sqBALW5AHsA';
+$key = 'ABQIAAAAGEV6Nd-qLB9zCIGC1aOYhhSQ2svP4hN5eHaSELwOJI6S4R9UdBQ7ESeIKDDHxmcv4t0sqBALW5AHsA';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,7 +41,7 @@ $offices = array(
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Contacto</title>
 	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAzr2EBOXUKnm_jVnk0OJI7xSosDVG8KKPE1-m51RBrvYughuyMxQ-i1QfUnH94QxWIa6N4U6MouMmBA"
+	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<?php echo $key; ?>"
 	type="text/javascript"></script>
 	<script type="text/javascript">
 
