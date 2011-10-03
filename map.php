@@ -7,7 +7,7 @@ include('functions.php');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Contacto</title>
+	<title>Contact</title>
 	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 </head>
 
@@ -26,7 +26,7 @@ foreach($zones as $key => $value) {
 }
 ?>
 <body onload="initialize()" onunload="GUnload()">
-	<h1>Contacto</h1>
+	<h1>Contact</h1>
 	<?php include('form.php'); ?>
 	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="500" height="290">
 	<param name="movie" value="map.swf?<?php echo implode('&', $aux); ?>" />
