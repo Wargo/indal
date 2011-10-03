@@ -46,6 +46,6 @@ $zoom = 2;
 	<h1><a href="map.php">Contact</a></h1>
 	<?php include('form.php'); ?>
 	<!-- <div id="map_canvas" style="width: 500px; height: 400px; margin-top: 10px;"></div> -->
-	<iframe width="500" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?ie=UTF8&amp;msa=0&amp;msid=207693414034452542156.0004ae2817e895a4eddde&amp;ll=<?php echo ${$zone}; ?>&amp;spn=19.570247,16.204491&amp;t=m&amp;vpsrc=6&amp;output=embed&amp;z=<?php echo $zoom; ?>"></iframe>
+	<iframe width="500" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?hl=en&amp;ie=UTF8&amp;msa=0&amp;msid=207693414034452542156.0004ae2817e895a4eddde&amp;ll=<?php echo ${$zone}; ?>&amp;spn=19.570247,16.204491&amp;t=m&amp;vpsrc=6&amp;output=embed&amp;z=<?php echo $zoom; ?>"></iframe>
 </body>
 </html>
