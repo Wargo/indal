@@ -26,6 +26,6 @@
 		</select>
 		<input type="text" />
 		-->
-		<input type="submit" value="Buscar" />
+		<input type="submit" value="Search" />
 	</form>
 </div>
