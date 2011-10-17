@@ -95,3 +95,7 @@ ul.menu li {
 .form {
 	margin: 10px 0px;
 }
+
+.right {
+	float: right;
+}

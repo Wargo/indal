@@ -26,3 +26,44 @@ function short_text($string, $limit, $link = '...<!-- Texto cortado -->'){
 	}
 	return $new_text;
 }
+
+if(!empty($_GET['lang'])) {
+	$lang = $_SESSION['lang'] = $_GET['lang'];
+} elseif(!empty($_SESSION['lang'])) {
+	$lang = $_SESSION['lang'];
+} else {
+	$lang = $_SESSION['lang'] = 'es';
+}
+
+function __($string) {
+	if($_SESSION['lang'] == 'es') {
+		return $string;
+	} else {
+		switch($string) {
+			case 'Buscar':
+				return 'Search';
+				break;
+			case 'Contacto':
+				return 'Contact';
+				break;
+			case 'Europa':
+				return 'Europe';
+				break;
+			case 'Sudamérica':
+				return 'South America';
+				break;
+			case 'Norte América':
+				return 'North America';
+				break;
+			case 'África':
+				return 'Africa';
+				break;
+			case 'Oceanía':
+				return 'Oceania';
+				break;
+			default:
+				return $string;
+				break;
+		}
+	}
+}
