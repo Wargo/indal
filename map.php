@@ -14,10 +14,10 @@ include('functions.php');
 <?php
 $zones = array(
 	//'america' => 'north_america',
-	//'sudamerica' => 'south_america',
-	//'africa' => 'africa',
+	'sudamerica' => 'south_america',
+	'africa' => 'africa',
 	'europa' => 'europe',
-	//'asia' => 'asia',
+	'asia' => 'asia',
 	//'oceania' => 'oceania',
 );
 $aux = array();
