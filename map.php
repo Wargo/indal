@@ -13,12 +13,12 @@ include('functions.php');
 
 <?php
 $zones = array(
-	'america' => 'north_america',
+	//'america' => 'north_america',
 	'sudamerica' => 'south_america',
 	'africa' => 'africa',
 	'europa' => 'europe',
 	'asia' => 'asia',
-	'oceania' => 'oceania',
+	//'oceania' => 'oceania',
 );
 $aux = array();
 foreach($zones as $key => $value) {
@@ -29,7 +29,7 @@ foreach($zones as $key => $value) {
 	<h1>Contact</h1>
 	<?php include('form.php'); ?>
 	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="500" height="290">
-	<param name="movie" value="map2.swf?<?php echo implode('&', $aux); ?>" />
+	<param name="movie" value="map.swf?<?php echo implode('&', $aux); ?>" />
 	<param name="quality" value="high" />
 	<embed src="map.swf?<?php echo implode('&', $aux); ?>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="500" height="290"></embed>
 	</object>
