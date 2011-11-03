@@ -19,22 +19,28 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 	<script>
 	var time;
+	var url_actual;
 	function show(event, url) {
 		//var y = event.screenY;
 		//var x = event.screenX;
-		if(document.getElementById('div').style.display == 'none') {
-			document.getElementById('image').src = '';
-			document.getElementById('div').style.display = '';
-			var y = event.pageY;
-			var x = event.pageX;
-			document.getElementById('div').style.left = x + 'px';
-			document.getElementById('div').style.top = y + 'px';
-			document.getElementById('image').src = url;
-			clearTimeout(time);
-			time = setTimeout('hide()', 5000);
+		if(url != url_actual) {
+			hide();
+			if(document.getElementById('div').style.display == 'none') {
+				url_actual = url;
+				document.getElementById('image').src = '';
+				document.getElementById('div').style.display = '';
+				var y = event.pageY;
+				var x = event.pageX;
+				document.getElementById('div').style.left = x + 'px';
+				document.getElementById('div').style.top = y + 'px';
+				document.getElementById('image').src = url;
+				clearTimeout(time);
+				time = setTimeout('hide()', 3000);
+			}
 		}
 	}
 	function hide() {
+		url_actual = null;
 		clearTimeout(time);
 		document.getElementById('div').style.display = 'none';
 	}
@@ -57,7 +63,7 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 		if (is_array($photos['photo'])) {
 			foreach ($photos['photo'] as $photo) {
 				echo '<li class="image">';
-					echo '<a onmouseout="hide();" onmouseover="show(event, \''.$f->buildPhotoURL($photo, 'large').'\');" target="_blank" href="'.$url.$photo['id'].'"><img class="img" alt="'.$photo['title'].'" title="'.$photo['title'].'" src="'.$f->buildPhotoURL($photo, 'square').'" /></a>';
+					echo '<a onmouseout="" onmouseover="show(event, \''.$f->buildPhotoURL($photo, 'large').'\');" target="_blank" href="'.$url.$photo['id'].'"><img class="img" alt="'.$photo['title'].'" title="'.$photo['title'].'" src="'.$f->buildPhotoURL($photo, 'square').'" /></a>';
 					echo '<a target="_blank" href="'.$url.$photo['id'].'" class="title">' . short_text($photo['title'], 25) . '</a>';
 				echo '</li>';
 				//<object style="height: 390px; width: 640px"><param name="movie" value="http://www.youtube.com/v/' . $id . '?version=3"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/' . $id . '?version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360"></object>
