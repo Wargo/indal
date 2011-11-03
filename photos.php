@@ -23,8 +23,6 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 	jQuery(document).ready(function(){
 		$('.img').mousemove(function(e){
 			if($('#div img').attr('src') != $(this).attr('var')) {
-				$('#div img').attr('width', '16');
-				$('#div img').attr('src', '/webs/indal/small.gif');
 				$('#div').show();
 				$('#div img').attr('src', $(this).attr('var'));
 				$('#div img').attr('width', '400');
@@ -33,6 +31,8 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 		}); 
 		$(document).mouseout(function() {
 			$('#div').hide();
+			$('#div img').attr('width', '16');
+			$('#div img').attr('src', '/webs/indal/small.gif');
 		});
 	})
 	</script>
