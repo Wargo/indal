@@ -24,15 +24,15 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 		$('.img').mousemove(function(e){
 			if($('#div img').attr('src') != $(this).attr('var')) {
 				$('#div').show();
-				$('#div img').attr('src', $(this).attr('var'));
-				$('#div img').attr('width', '400');
+				//$('#div img').attr('src', $(this).attr('var'));
+				$('#div').html('<img src="' + $(this).attr('var') + '" border="0" width="400" />');
 			}
 			$('#div').attr('style', 'top: ' + (e.pageY + 5) + 'px; left: ' + (e.pageX + 5) + 'px;');
 		}); 
 		$(document).mouseout(function() {
 			$('#div').hide();
-			$('#div img').attr('width', '16');
-			$('#div img').attr('src', '/webs/indal/small.gif');
+			//$('#div img').attr('src', '/webs/indal/small.gif');
+			$('#div').html('<img src="/webs/indal/small.gif" border="0" />');
 		});
 	})
 	</script>
