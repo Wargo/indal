@@ -24,7 +24,8 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 		$('.img').mousemove(function(e){
 			if($('#div img').attr('src') != $(this).attr('var')) {
 				$('#div').show();
-				$('#div').html('<img src="' + $(this).attr('var') + '" border="0" width="300" />');
+				$('#div img').attr('src', $(this).attr('var'));
+				$('#div .title').html($(this).attr('title'));
 			}
 			moveY = moveX = 5;
 			switch($(this).attr('pos')) {
@@ -40,17 +41,23 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 					moveX = -300;
 					break;
 			}
+			if($(this).attr('posY') == 1) {
+				moveY = -80 - $('#div img').attr('height');
+			}
 			$('#div').attr('style', 'top: ' + (e.pageY + moveY) + 'px; left: ' + (e.pageX + moveX) + 'px;');
 		}); 
 		$(document).mouseout(function() {
 			$('#div').hide();
-			$('#div').html('<img src="/webs/indal/small.gif" border="0" />');
+			$('#div img').attr('src', '');
 		});
 	})
 	</script>
 </head>
 <body>
-	<div style="display: none;" id="div"><img src="" border="0" id="image" /></div>
+	<div style="display: none;" id="div">
+		<img src="" border="0" id="image" width="300" />
+		<div class="title"></div>
+	</div>
 	<div class="header">
 		<h1>Zona multimedia</h1>
 		<ul class="menu">
@@ -68,7 +75,7 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 			foreach ($photos['photo'] as $photo) {
 				$i ++;
 				echo '<li class="image">';
-					echo '<a target="_blank" href="'.$url.$photo['id'].'"><img pos="' . $i%4 . '" var="'.$f->buildPhotoURL($photo, 'large').'" class="img" alt="'.$photo['title'].'" title="'.$photo['title'].'" src="'.$f->buildPhotoURL($photo, 'square').'" /></a>';
+					echo '<a target="_blank" href="'.$url.$photo['id'].'"><img posY="'.($i>16?'1':'0').'" pos="' . $i%4 . '" var="'.$f->buildPhotoURL($photo, 'large').'" class="img" alt="'.$photo['title'].'" title="'.$photo['title'].'" src="'.$f->buildPhotoURL($photo, 'square').'" /></a>';
 					echo '<a target="_blank" href="'.$url.$photo['id'].'" class="title">' . short_text($photo['title'], 25) . '</a>';
 				echo '</li>';
 				echo '<img style="display: none;" src="'.$f->buildPhotoURL($photo, 'large').'" />';
