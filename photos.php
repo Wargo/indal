@@ -24,14 +24,26 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 		$('.img').mousemove(function(e){
 			if($('#div img').attr('src') != $(this).attr('var')) {
 				$('#div').show();
-				//$('#div img').attr('src', $(this).attr('var'));
-				$('#div').html('<img src="' + $(this).attr('var') + '" border="0" width="400" />');
+				$('#div').html('<img src="' + $(this).attr('var') + '" border="0" width="300" />');
 			}
-			$('#div').attr('style', 'top: ' + (e.pageY + 5) + 'px; left: ' + (e.pageX + 5) + 'px;');
+			moveY = moveX = 5;
+			switch($(this).attr('pos')) {
+				case '1':
+					break;
+				case '2':
+					moveX = -100;
+					break;
+				case '3':
+					moveX = -200;
+					break;
+				case '0':
+					moveX = -300;
+					break;
+			}
+			$('#div').attr('style', 'top: ' + (e.pageY + moveY) + 'px; left: ' + (e.pageX + moveX) + 'px;');
 		}); 
 		$(document).mouseout(function() {
 			$('#div').hide();
-			//$('#div img').attr('src', '/webs/indal/small.gif');
 			$('#div').html('<img src="/webs/indal/small.gif" border="0" />');
 		});
 	})
@@ -51,12 +63,15 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 	<div class="clearfix">
 		<ul class="square">
 		<?php
+		$i = 0;
 		if (is_array($photos['photo'])) {
 			foreach ($photos['photo'] as $photo) {
+				$i ++;
 				echo '<li class="image">';
-					echo '<a target="_blank" href="'.$url.$photo['id'].'"><img var="'.$f->buildPhotoURL($photo, 'large').'" class="img" alt="'.$photo['title'].'" title="'.$photo['title'].'" src="'.$f->buildPhotoURL($photo, 'square').'" /></a>';
+					echo '<a target="_blank" href="'.$url.$photo['id'].'"><img pos="' . $i%4 . '" var="'.$f->buildPhotoURL($photo, 'large').'" class="img" alt="'.$photo['title'].'" title="'.$photo['title'].'" src="'.$f->buildPhotoURL($photo, 'square').'" /></a>';
 					echo '<a target="_blank" href="'.$url.$photo['id'].'" class="title">' . short_text($photo['title'], 25) . '</a>';
 				echo '</li>';
+				echo '<img style="display: none;" src="'.$f->buildPhotoURL($photo, 'large').'" />';
 				//<object style="height: 390px; width: 640px"><param name="movie" value="http://www.youtube.com/v/' . $id . '?version=3"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/' . $id . '?version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360"></object>
 			}
 		}
@@ -69,5 +84,6 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 		<?php } ?>
 		<a href="?page=<?php echo $page + 1; ?>" class="next">Siguiente &gt;</a>
 	</div>
+	<div class="space_reserved_for_images"></div>
 </body>
 </html>
