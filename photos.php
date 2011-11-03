@@ -22,8 +22,11 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
 		$('.img').mousemove(function(e){
+			$('#div img').attr('width', '16');
+			$('#div img').attr('src', 'small.gif');
 			$('#div').show();
 			$('#div img').attr('src', $(this).attr('var'));
+			$('#div img').attr('width', '400');
 			$('#div').attr('style', 'top: ' + (e.pageY + 5) + 'px; left: ' + (e.pageX + 5) + 'px;');
 		}); 
 		$(document).mouseout(function() {
@@ -33,7 +36,7 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 	</script>
 </head>
 <body>
-	<div style="display: none;" id="div"><img src="" border="0" id="image" width="400" /></div>
+	<div style="display: none;" id="div"><img src="" border="0" id="image" /></div>
 	<div class="header">
 		<h1>Zona multimedia</h1>
 		<ul class="menu">
