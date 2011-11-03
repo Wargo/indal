@@ -35,7 +35,7 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 				document.getElementById('div').style.top = y + 'px';
 				document.getElementById('image').src = url;
 				clearTimeout(time);
-				time = setTimeout('hide()', 3000);
+				time = setTimeout('hide()', 5000);
 			}
 		}
 	}
