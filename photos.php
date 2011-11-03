@@ -24,7 +24,7 @@ $url = 'http://www.flickr.com/photos/'.$nsid.'/'; //Url de la Imgen Original
 		$('.img').mousemove(function(e){
 			if($('#div img').attr('src') != $(this).attr('var')) {
 				$('#div img').attr('width', '16');
-				$('#div img').attr('src', 'small.gif');
+				$('#div img').attr('src', '/webs/indal/small.gif');
 				$('#div').show();
 				$('#div img').attr('src', $(this).attr('var'));
 				$('#div img').attr('width', '400');
