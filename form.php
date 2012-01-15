@@ -1,3 +1,19 @@
+<script>
+function change_countries(value) {
+	document.getElementById('europe').style.display = 'none';
+	document.getElementById('asia').style.display = 'none';
+	document.getElementById('america').style.display = 'none';
+	document.getElementById('africa').style.display = 'none';
+	document.getElementById('oceania').style.display = 'none';
+	document.getElementById('europe').disabled = true;
+	document.getElementById('asia').disabled = true;
+	document.getElementById('america').disabled = true;
+	document.getElementById('africa').disabled = true;
+	document.getElementById('oceania').disabled = true;
+	document.getElementById(value).style.display = '';
+	document.getElementById(value).disabled = false;
+}
+</script>
 <div class="form">
 	<?php
 	if(!empty($_REQUEST['zone'])) {
@@ -7,25 +23,35 @@
 	}
 	?>
 	<form method="post" action="results.php">
-		<select name="zone">
+		<select name="zone" onchange="change_countries(this.value)">
 			<option <?php if($zone == 'europe') echo 'selected'; ?> value="europe"><?php echo __('Europa'); ?></option>
-			<option disabled="true" <?php if($zone == 'north_america') echo 'selected'; ?> value="north_america"><?php echo __('Norte América'); ?></option>
-			<option <?php if($zone == 'south_america') echo 'selected'; ?> value="south_america"><?php echo __('Sudamérica'); ?></option>
+			<option <?php if($zone == 'america') echo 'selected'; ?> value="america"><?php echo __('América'); ?></option>
 			<option <?php if($zone == 'asia') echo 'selected'; ?> value="asia">Asia</option>
 			<option <?php if($zone == 'africa') echo 'selected'; ?> value="africa"><?php echo __('África'); ?></option>
-			<option disabled="true" <?php if($zone == 'oceania') echo 'selected'; ?> value="oceania"><?php echo __('Oceanía'); ?></option>
+			<option <?php if($zone == 'oceania') echo 'selected'; ?> value="oceania"><?php echo __('Oceanía'); ?></option>
 		</select>
-		<!--
-		<select name="country">
-			<option value="1">España</option>
-			<option value="2">Portugal</option>
-			<option value="3">Francia</option>
-			<option value="4">Italia</option>
-			<option value="5">Alemania</option>
-			<option value="6">Holanda</option>
-		</select>
-		<input type="text" />
-		-->
+		<?php
+		$array_zones = array('europe', 'america', 'africa', 'asia', 'oceania');
+		foreach($array_zones as $current_zone) {
+			?>
+			<select name="country" id="<?php echo $current_zone; ?>" style="display: <?php echo $zone==$current_zone?'':'none'; ?>" <?php echo $zone==$current_zone?'':'disabled="disabled"'; ?>>
+				<?php
+				$countries = mysql_query("select country from oficinas where continent like '%$current_zone%' group by country");
+				echo '<option value="">' . __('Cualquiera') . '</option>';
+				while($country = mysql_fetch_object($countries)) {
+					if($country->country == $_POST['country']) {
+						$selected = 'selected';
+					} else {
+						$selected = '';
+					}
+					echo '<option ' . $selected . ' value="' . $country->country . '">' . $country->country . '</option>';
+				}
+				?>
+			</select>
+			<?php
+		}
+		?>
+		<input type="text" name="text" value="<?php echo !empty($_POST['text'])?$_POST['text']:''; ?>" />
 		<input type="submit" value="<?php echo __('Buscar'); ?>" />
 	</form>
 </div>

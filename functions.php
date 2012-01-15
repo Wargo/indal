@@ -40,6 +40,9 @@ function __($string) {
 		return $string;
 	} else {
 		switch($string) {
+			case 'Cualquiera':
+				return 'Any';
+				break;
 			case 'Buscar':
 				return 'Search';
 				break;
@@ -55,11 +58,17 @@ function __($string) {
 			case 'Norte América':
 				return 'North America';
 				break;
+			case 'América':
+				return 'America';
+				break;
 			case 'África':
 				return 'Africa';
 				break;
 			case 'Oceanía':
 				return 'Oceania';
+				break;
+			case 'Otras zonas':
+				return 'Other sites';
 				break;
 			default:
 				return $string;

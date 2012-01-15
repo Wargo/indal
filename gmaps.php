@@ -1,41 +1,16 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if(empty($_REQUEST['zone'])) {
 	$zone = 'europe';
 } else {
 	$zone = $_REQUEST['zone'];
 }
-
-$offices = array(
-	array(
-		'lat' => '41.615346071613295',
-		'lng' => '-4.734764099121094',
-		'name' => 'Indal S.L. <br />Ctra. Arcas Reales S/N, 47008 Valladolid',
-	),
-	array(
-		'lat' => '39.673197',
-		'lng' => '-0.681023',
-		'name' => 'Oficina 1',
-	),
-	array(
-		'lat' => '43.673197',
-		'lng' => '9.681023',
-		'name' => 'Oficina 2',
-	),
-	array(
-		'lat' => '39.673197',
-		'lng' => '21.681023',
-		'name' => 'Oficina 3',
-	),
-	array(
-		'lat' => '56.673197',
-		'lng' => '9.681023',
-		'name' => 'Oficina 4',
-	),
-);
 ?>
 var europe = new GLatLng(47, 7);
 var north_america = new GLatLng(47, -120);
 var south_america = new GLatLng(-20, -70);
+var america = new GLatLng(0, -70);
 var africa = new GLatLng(0, 0);
 var asia = new GLatLng(55, 90);
 var oceania = new GLatLng(-20, 135);
@@ -51,10 +26,12 @@ function initialize() {
 		var lngSpan = northEast.lng() - southWest.lng();
 		var latSpan = northEast.lat() - southWest.lat();
 		<?php
-		foreach($offices as $office) {
+		//foreach($offices as $office) {
+		while($office = mysql_fetch_object($offices)) {
+			$text = '<strong>' . $office->company . '</strong><br />' . $office->address . ', ' . $office->city . '<br />' . $office->phone . ' ' . $office->mobile . '<br />' . $office->hours;
 			echo '
-			var point = new GLatLng(' . $office['lat'] . ', ' . $office['lng'] . ');
-			map.addOverlay(createMarker(point, \'' . $office['name'] . '\'));
+			var point = new GLatLng(' . $office->latitude . ', ' . $office->longitude . ');
+			map.addOverlay(createMarker(point, \'' . $text . '\'));
 			';
 		}
 		?>
@@ -91,7 +68,7 @@ function createMarker(point, text) {
 	var marker = new GMarker(point, markerOptions);
 
 	GEvent.addListener(marker, "click", function() {
-		marker.openInfoWindowHtml("<b>" + letter + "</b>");
+		marker.openInfoWindowHtml(letter);
 	});
 	return marker;
 }
