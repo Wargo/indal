@@ -13,9 +13,8 @@ include('functions.php');
 
 <?php
 $zones = array(
-	//'america' => 'north_america',
-	//'sudamerica' => 'south_america',
-	'sudamerica' => 'america',
+	'america' => 'america',
+	'sudamerica' => 'south america',
 	'africa' => 'africa',
 	'europa' => 'europe',
 	'asia' => 'asia',
