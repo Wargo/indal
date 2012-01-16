@@ -1,6 +1,6 @@
 <?php
-mysql_connect('localhost', 'root', 'root');
-//mysql_connect('localhost', 'indal', 'dSoek9Xp');
+//mysql_connect('localhost', 'root', 'root');
+mysql_connect('localhost', 'indal', 'dSoek9Xp');
 mysql_select_db('indal');
 
 if(!empty($_GET['page'])) {
@@ -71,8 +71,8 @@ function __($string) {
 			case 'Oceanía':
 				return 'Oceania';
 				break;
-			case 'Otras zonas':
-				return 'Other sites';
+			case 'Contactos de exportación':
+				return 'Export contacts';
 				break;
 			default:
 				return $string;

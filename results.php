@@ -66,7 +66,7 @@ $zoom = 2;
 	<?php
 	if(mysql_num_rows($offices2)) {
 		?>
-		<h2><?php echo __('Otras zonas'); ?></h2>
+		<h2><?php echo __('Contactos de exportación'); ?></h2>
 		<ul class="list">
 			<?php
 			while($office = mysql_fetch_object($offices2)) {

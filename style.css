@@ -117,9 +117,29 @@ div.space_reserved_for_images {
 	height: 100px;
 }
 
+select {
+	border: 1px solid #BCB9B3;
+	background: #FFF;
+	width: 100%;
+	margin: 2px 0px;
+}
+
 select.countries {
-	width: 398px;
+	/*width: 398px;*/
+}
+input[type="submit"] {
+	border: 1px solid #BCB9B3;
+	background: #EEE;
+	cursor: pointer;
 }
 input.search_text {
-	width: 410px;
+	border: 1px solid #BCB9B3;
+	background: #FFF;
+	width: 428px;
+	margin: 2px 0px;
+	/*width: 410px;*/
+}
+
+#map_canvas {
+	border: solid 1px #CCC;
 }
