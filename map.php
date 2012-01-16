@@ -19,7 +19,7 @@ $zones = array(
 	'africa' => 'africa',
 	'europa' => 'europe',
 	'asia' => 'asia',
-	//'oceania' => 'oceania',
+	'oceania' => 'oceania',
 );
 $aux = array();
 foreach($zones as $key => $value) {
