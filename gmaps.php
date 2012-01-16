@@ -28,7 +28,7 @@ function initialize() {
 		<?php
 		//foreach($offices as $office) {
 		while($office = mysql_fetch_object($offices)) {
-			$text = '<strong>' . $office->company . '</strong><br />' . $office->address . ', ' . $office->city . '<br />' . $office->phone . ' ' . $office->mobile . '<br />' . $office->hours;
+			$text = str_replace("\r\n", '<br />', '<strong>' . $office->company . '</strong><br />' . $office->address . ', ' . $office->city . '<br />' . $office->phone . ' ' . $office->mobile . '<br />' . $office->hours);
 			echo '
 			var point = new GLatLng(' . $office->latitude . ', ' . $office->longitude . ');
 			map.addOverlay(createMarker(point, \'' . $text . '\'));
