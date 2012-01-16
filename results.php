@@ -4,23 +4,23 @@ ini_set('display_errors', 1);
 
 include('functions.php');
 
-if(empty($_POST['zone'])) {
+if(empty($_REQUEST['zone'])) {
 	$zone = 'europe';
 } else {
-	$zone = $_POST['zone'];
+	$zone = $_REQUEST['zone'];
 }
 
 $conditions = '';
 
 $conditions .= "and continent like '%$zone%'";
 
-if(!empty($_POST['text'])) {
-	$text = $_POST['text'];
+if(!empty($_REQUEST['text'])) {
+	$text = $_REQUEST['text'];
 	$conditions .= "and (email like '%$text%' or company like '%$text%' or address like '%$text%' or phone like '%$text%')";
 }
 
-if(!empty($_POST['country'])) {
-	$country = $_POST['country'];
+if(!empty($_REQUEST['country'])) {
+	$country = $_REQUEST['country'];
 	$conditions .= "and country = '$country'";
 }
 
