@@ -4,7 +4,8 @@ ini_set('display_errors', 1);
 
 include('functions.php');
 
-mysql_connect('localhost', 'root', 'root');
+//mysql_connect('localhost', 'root', 'root');
+mysql_connect('localhost', 'indal', 'dSoek9Xp');
 mysql_select_db('indal');
 
 if(empty($_POST['zone'])) {
