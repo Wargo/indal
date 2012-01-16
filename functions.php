@@ -56,7 +56,7 @@ function __($string) {
 			case 'Europa':
 				return 'Europe';
 				break;
-			case 'Sudamérica':
+			case 'América del sur':
 				return 'South America';
 				break;
 			case 'Norte América':

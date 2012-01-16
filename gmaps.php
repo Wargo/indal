@@ -17,7 +17,7 @@ var oceania = new GLatLng(-20, 135);
 function initialize() {
 	if (GBrowserIsCompatible()) {
 		var map = new GMap2(document.getElementById("map_canvas"));
-		map.setCenter(<?php echo $zone; ?>, 2);
+		map.setCenter(<?php echo str_replace(' ', '_', $zone); ?>, 2);
 
 		// Add 10 markers to the map at random locations
 		var bounds = map.getBounds();

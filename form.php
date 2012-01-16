@@ -3,11 +3,13 @@ function change_countries(value) {
 	document.getElementById('europe').style.display = 'none';
 	document.getElementById('asia').style.display = 'none';
 	document.getElementById('america').style.display = 'none';
+	document.getElementById('south america').style.display = 'none';
 	document.getElementById('africa').style.display = 'none';
 	document.getElementById('oceania').style.display = 'none';
 	document.getElementById('europe').disabled = true;
 	document.getElementById('asia').disabled = true;
 	document.getElementById('america').disabled = true;
+	document.getElementById('south america').disabled = true;
 	document.getElementById('africa').disabled = true;
 	document.getElementById('oceania').disabled = true;
 	document.getElementById(value).style.display = '';
@@ -26,17 +28,18 @@ function change_countries(value) {
 		<select name="zone" onchange="change_countries(this.value)">
 			<option <?php if($zone == 'europe') echo 'selected'; ?> value="europe"><?php echo __('Europa'); ?></option>
 			<option <?php if($zone == 'america') echo 'selected'; ?> value="america"><?php echo __('América'); ?></option>
+			<option <?php if($zone == 'south america') echo 'selected'; ?> value="south america"><?php echo __('América del sur'); ?></option>
 			<option <?php if($zone == 'asia') echo 'selected'; ?> value="asia">Asia</option>
 			<option <?php if($zone == 'africa') echo 'selected'; ?> value="africa"><?php echo __('África'); ?></option>
 			<option <?php if($zone == 'oceania') echo 'selected'; ?> value="oceania"><?php echo __('Oceanía'); ?></option>
 		</select>
 		<?php
-		$array_zones = array('europe', 'america', 'africa', 'asia', 'oceania');
+		$array_zones = array('europe', 'america', 'south america', 'africa', 'asia', 'oceania');
 		foreach($array_zones as $current_zone) {
 			?>
 			<select class="countries" name="country" id="<?php echo $current_zone; ?>" style="display: <?php echo $zone==$current_zone?'':'none'; ?>" <?php echo $zone==$current_zone?'':'disabled="disabled"'; ?>>
 				<?php
-				$countries = mysql_query("select country from oficinas where continent like '%$current_zone%' group by country");
+				$countries = mysql_query("select country from oficinas where continent = '$current_zone' group by country");
 				echo '<option value="">' . __('Todos los paises') . '</option>';
 				while($country = mysql_fetch_object($countries)) {
 					if($country->country == $_POST['country']) {

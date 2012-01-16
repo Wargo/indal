@@ -12,7 +12,7 @@ if(empty($_REQUEST['zone'])) {
 
 $conditions = '';
 
-$conditions .= "and continent like '%$zone%'";
+$conditions .= "and continent = '$zone'";
 
 if(!empty($_REQUEST['text'])) {
 	$text = $_REQUEST['text'];
