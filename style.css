@@ -116,3 +116,10 @@ div#div .title {
 div.space_reserved_for_images {
 	height: 100px;
 }
+
+select.countries {
+	width: 398px;
+}
+input.search_text {
+	width: 410px;
+}

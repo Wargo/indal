@@ -34,10 +34,10 @@ function change_countries(value) {
 		$array_zones = array('europe', 'america', 'africa', 'asia', 'oceania');
 		foreach($array_zones as $current_zone) {
 			?>
-			<select name="country" id="<?php echo $current_zone; ?>" style="display: <?php echo $zone==$current_zone?'':'none'; ?>" <?php echo $zone==$current_zone?'':'disabled="disabled"'; ?>>
+			<select class="countries" name="country" id="<?php echo $current_zone; ?>" style="display: <?php echo $zone==$current_zone?'':'none'; ?>" <?php echo $zone==$current_zone?'':'disabled="disabled"'; ?>>
 				<?php
 				$countries = mysql_query("select country from oficinas where continent like '%$current_zone%' group by country");
-				echo '<option value="">' . __('Cualquiera') . '</option>';
+				echo '<option value="">' . __('Todos los paises') . '</option>';
 				while($country = mysql_fetch_object($countries)) {
 					if($country->country == $_POST['country']) {
 						$selected = 'selected';
@@ -51,7 +51,7 @@ function change_countries(value) {
 			<?php
 		}
 		?>
-		<input type="text" name="text" value="<?php echo !empty($_POST['text'])?$_POST['text']:''; ?>" />
+		<input class="search_text" type="text" name="text" value="<?php echo !empty($_POST['text'])?$_POST['text']:''; ?>" />
 		<input type="submit" value="<?php echo __('Buscar'); ?>" />
 	</form>
 </div>

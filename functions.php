@@ -40,8 +40,8 @@ function __($string) {
 		return $string;
 	} else {
 		switch($string) {
-			case 'Cualquiera':
-				return 'Any';
+			case 'Todos los paises':
+				return 'All countries';
 				break;
 			case 'Buscar':
 				return 'Search';
