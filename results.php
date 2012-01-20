@@ -71,7 +71,7 @@ $zoom = 2;
 			<?php
 			while($office = mysql_fetch_object($offices2)) {
 				echo '<li>';
-					echo $office->email . ' (' . $office->country . ')';
+					echo '<a href="mailto:' . $office->email . '">' . $office->email . '</a> (' . $office->country . ')';
 				echo '</li>';
 			}
 			?>
