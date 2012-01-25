@@ -28,7 +28,11 @@ function initialize() {
 		<?php
 		//foreach($offices as $office) {
 		while($office = mysql_fetch_object($offices)) {
-			$text = str_replace("\r\n", '<br />', '<strong>' . $office->company . '</strong><br />' . $office->address . ', ' . $office->city . ', ' . $office->zip. '<br />' . $office->phone . ($office->phone && $office->mobile?' - ':'') . $office->mobile . '<br />' . $office->hours);
+			$company = $office->company;
+			if(strpos($office->company, 'Indal') === 0) {
+				$company = 'Indal';
+			}
+			$text = str_replace("\r\n", '<br />', '<strong>' . $company . '</strong><br />' . $office->address . ', ' . $office->city . ', ' . $office->zip. '<br />' . $office->phone . ($office->phone && $office->mobile?' - ':'') . $office->mobile . '<br />' . $office->hours);
 			echo '
 			var point = new GLatLng(' . $office->latitude . ', ' . $office->longitude . ');
 			map.addOverlay(createMarker(point, \'' . $text . '\'));

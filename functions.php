@@ -1,6 +1,7 @@
 <?php
+@session_start();
 //mysql_connect('localhost', 'root', 'root');
-mysql_connect('localhost', 'indal', 'dSoek9Xp');
+mysql_connect('serverlinux12.artvisual.net', 'indal', 'dSoek9Xp');
 mysql_select_db('indal');
 
 if(!empty($_GET['page'])) {
