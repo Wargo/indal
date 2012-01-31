@@ -32,6 +32,7 @@ function initialize() {
 			if(strpos($office->company, 'Indal') === 0) {
 				$company = 'Indal';
 			}
+			$company = 'Indal';
 			$text = str_replace("\r\n", '<br />', '<strong>' . $company . '</strong><br />' . $office->address . ', ' . $office->city . ', ' . $office->zip. '<br />' . $office->phone . ($office->phone && $office->mobile?' - ':'') . $office->mobile . '<br />' . $office->hours);
 			echo '
 			var point = new GLatLng(' . $office->latitude . ', ' . $office->longitude . ');
